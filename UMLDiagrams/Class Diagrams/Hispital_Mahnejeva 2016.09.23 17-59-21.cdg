@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Hispital_Mahnejeva">
+  <ClassDiagramComponents>
+    <Class name="Position" package="" visibility="public" xPosition="998.0" yPosition="326.0">
+      <Fields>
+        <Field name="positionName" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Division" package="" visibility="public" xPosition="138.0" yPosition="20.0">
+      <Fields>
+        <Field name="divisionName" type="String" visibility="private"/>
+        <Field name="nurces" type="List&lt;Nurse&gt;" visibility="private"/>
+        <Field name="wards" type="List&lt;Ward&gt;" visibility="private"/>
+        <Field name="doctors" type="List&lt;Doctor&gt;" visibility="private"/>
+        <Field name="staffes" type="List&lt;Staff&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Doctor" package="" visibility="public" xPosition="529.0" yPosition="39.0">
+      <Fields>
+        <Field name="salary" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Hispital_Mahnejeva" package="hispital_mahnejeva" visibility="public" xPosition="1760.0" yPosition="39.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="String[]" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Staff" package="" visibility="public" xPosition="384.0" yPosition="428.0">
+      <Fields>
+        <Field name="salary" type="Integer" visibility="private"/>
+        <Field name="position" type="Position" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Nurse" package="" visibility="public" xPosition="616.0" yPosition="300.0">
+      <Fields>
+        <Field name="salary" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Pacient" package="" visibility="public" xPosition="384.0" yPosition="703.0">
+      <Fields>
+        <Field name="doctor" type="Doctor" visibility="private"/>
+        <Field name="arrive" type="Date" visibility="private"/>
+        <Field name="departure" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Person" package="" visibility="public" xPosition="812.0" yPosition="20.0">
+      <Fields>
+        <Field name="firstname" type="String" visibility="private"/>
+        <Field name="lastname" type="String" visibility="private"/>
+        <Field name="code" type="String" visibility="private"/>
+        <Field name="id" type="Long" visibility="private"/>
+        <Field name="age" type="Integer" visibility="private"/>
+        <Field name="birthdey" type="String" visibility="private"/>
+        <Field name="gender" type="String" visibility="private"/>
+        <Field name="parseCode" type="ParseCode" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Ward" package="" visibility="public" xPosition="151.0" yPosition="365.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="department" type="Division" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Interface name="Employer" package="" visibility="public" xPosition="1073.0" yPosition="685.0">
+      <Methods>
+        <Method name="getSalary" returnType="Integer" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Peaple" package="" visibility="public" xPosition="1238.0" yPosition="36.0">
+      <Methods/>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="doctors" source="Division" target="Doctor" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Doctor" target="Person"/>
+    <HasRelation name="staff" source="Division" target="Staff" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="pos" source="Staff" target="Position" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Pacient" target="Person"/>
+    <HasRelation name="pacient" source="Pacient" target="Division" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="nurces" source="Division" target="Nurse" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="ward" source="Pacient" target="Ward" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Person" target="Peaple"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Doctor" target="Employer"/>
+    <HasRelation name="position" source="Staff" target="Position" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Nurse" target="Employer"/>
+    <IsRelation name="is" source="Staff" target="Person"/>
+    <HasRelation name="ward" source="Division" target="Ward" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Nurse" target="Person"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Staff" target="Employer"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
